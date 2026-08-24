@@ -187,6 +187,45 @@
              * They operate at the same level of access as any external code.
              */
             #endregion
+
+            #region Q5) a)
+            //What is a Partial Class?
+
+            /*
+             * Is a class that can be split across multiple files.
+             * The partial keyword allows you to define different parts of the same class in separate .cs files, which are then combined by the compiler into a single class.
+             * One class, multiple files. The compiler combines all parts into a single class.
+             */
+            #endregion
+
+            #region Q5) b)
+            //Why would a developer split one class into multiple files?
+
+            /*
+             * Keep auto-generated code separate from custom code.
+             * Multiple developers can work on the same class simultaneously.
+             * Make large classes more manageable and readable.
+             */
+            #endregion
+
+            #region Q5) c)
+            //What is a Partial Method?
+
+            /*
+             * Is a method that is defined in one part of a partial class and optionally implemented in another part. 
+             * If the method is not implemented, the compiler removes all calls to it and does not generate any code for it.
+             *  "Optional method that is only included in the final code if it's implemented".
+             */
+            #endregion
+
+            #region Q5) d)
+            //What happens if a declared partial method has no implementation?
+
+            /*
+             * The method is completely removed by the compiler. No code is generated, and no calls to the method are executed.
+             * If a partial method has no implementation, it's as if it never existed. The compiler removes the declaration and all calls to it. 
+             */
+            #endregion
         }
     }
 }
