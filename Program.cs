@@ -93,7 +93,66 @@
              */
             #endregion
 
+            #region Q3) a)
+            //What is a static field, and how is it different from an instance field?
 
+            /*
+             * Static field: belongs to the class.
+             *  For each creating new object, it contains a new copy of static field. Not shared, each new object has a new independent copt of the static field.
+             *  Shared for all instance. 
+             *  If need to access static field/member, access it through its belonging class.
+             *  Static Field = "shared by all objects" (one copy per class) / "same for everyone"
+             * 
+             * Differs from an instance field, is the instance field belongs to each individual object (instance) of the class.
+             * Instance Field = "belongs to each object" (one copy per object) / "different for each"
+             */
+            #endregion
+
+            #region Q3) b)
+            //What is a static method? Can a static method directly access instance members?
+
+            /*
+             * Static method / Class method: is a method that belongs to the class itself, not to any specific instance (object) of the class. It can be called without creating an object of the class.
+             * Not need to make instance from the class to access its static method.
+             * Access static method directly from its class name.
+             * Belongs to its class, not to any object. Can only access what belongs to the class.
+             * 
+             * No, static method can not acess a non-static/ instance member. If need to access, make both of them static.
+             *  Instatnce method: belongs to a specific object. Can access both class-level and object-level members.
+             */
+            #endregion
+
+            #region Q3) c)
+            //What is a static constructor, and when is it executed?
+
+            /*
+             * Static constructor: special constructorthat is called automatically to initialize the static members of a class before any static member is accessed or any instance is created. It belongs to the class itself, not to any specific object.
+             * Implemented without access modifier. 
+             * Can not call static constructor. So, it doesn't accept parameters.
+             * It runs only one time, and run before first usage of its class (before creating any object of its class/before access any member inside the class/
+             * before calling any static method/member).
+             * As the initial configuration, only one time use and before any usage. 
+             * Intialize all static members and fields. 
+             * "Used to perform one-time intialization"
+             * 
+             * A static constructor is executed automatically at exactly one of these times:
+             * Before the first static member is accessed and before the first instance is created.
+             */
+            #endregion
+
+            #region Q3) d)
+            //What is a static class? Can you create an object from a static class?
+
+            /*
+             * Is a class that cannot be instantiated and can only contain static members. 
+             * It serves as a container for utility methods and shared data that don't require object state.
+             * "A container for utility functions. Don't create objects, just use the methods directly".
+             * 
+             * A static class has no instance constructors and no instance data. It's designed to be a container for static methods and data only. 
+             *  Can not create an object from a static class because it's designed to be a container for shared functionality, not a template for individual objects. 
+             *  All members are static and belong to the class itself, not to any instance.
+             */
+            #endregion
         }
     }
 }
