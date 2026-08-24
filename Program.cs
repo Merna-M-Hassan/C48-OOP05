@@ -42,6 +42,58 @@
              */
             #endregion
 
+            #region Q2) a)
+            // What is a Shallow Copy?
+
+            /*
+             * Creates a new independent object and take a copy for all fields and paste them in the new independent object.
+             * If the field is a value type it takes a copy of the data itself (fields values), if the field is a reference type it takes a copy from its reference (memory address) .
+             * If a nested object exists, after copying the new object will refer to the same memory address/reference of the nested object, and any modyfing occur in nested object of the old object or copied object, will affect each other.
+             * 
+             * Shallow Copy:  is a copy of an object where only the top-level fields are copied. 
+             * If the object contains references to other objects, a shallow copy copies the references (memory addresses) to those objects, not the objects themselves.
+             */
+            #endregion
+
+            #region Q2) b)
+            //What is a Deep Copy?
+
+            /*
+             * Creates new object, copy all top-level object data to the new created one, if there is a second-level object (nested object) data is also copied.
+             * A deep copy creates a new object and recursively copies all nested objects. The original and the copy are completely independent. 
+             * 
+             *Is a copy of an object where all data is copied, including the objects that the original object references. 
+             *Every nested object is also duplicated, creating a completely independent copy with no shared data.
+             */
+            #endregion
+
+            #region Q2) c)
+            //What happens to reference-type members when a shallow copy is created?
+
+            /*
+             * Their references (memory addresses) are copied. This means both the original and the copy share the same reference type objects.
+             * If you modify a reference-type member through a shallow copy, the original object is also modified because they share the same reference.
+             */
+            #endregion
+
+            #region Q2) d)
+            //What happens to reference-type members when a Deep Copy is created?
+
+            /*
+             * Reference type members are completely copied, new instances are created for all reference type objects, creating a completely independent copy with no shared references.
+             * Reference type members are completely copied, new independent objects are created for all reference types, ensuring no sharing between original and copy.
+             */
+            #endregion
+
+            #region Q2) e)
+            //Give one situation where Deep Copy would be safer than Shallow Copy.
+
+            /*
+             * Deep copy is safer than shallow copy when need to modify a copy without affecting the original.
+             */
+            #endregion
+
+
         }
     }
 }
