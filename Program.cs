@@ -153,6 +153,40 @@
              *  All members are static and belong to the class itself, not to any instance.
              */
             #endregion
+
+            #region Q4) a)
+            //What is an Extension Method?
+
+            /*
+             * Extend method: add new methods to existing types without modifying th eoriginal type or creating a new derived type.
+             * Extend method without opening/modifying its class.
+             */
+            #endregion
+
+            #region Q4) b)
+            //What keyword must be used in the first parameter of an extension method?
+
+            /*
+             * this 
+             */
+            #endregion
+
+            #region Q4) c)
+            //Where must an extension method be declared?
+
+            /*
+             * In a static class as a static method.
+             */
+            #endregion
+
+            #region Q4) d)
+            //Can an extension method access private members of the class it extends?
+
+            /*
+             * No, Extension methods are just static methods in a static class. They are not part of the class they extend.
+             * They operate at the same level of access as any external code.
+             */
+            #endregion
         }
     }
 }
