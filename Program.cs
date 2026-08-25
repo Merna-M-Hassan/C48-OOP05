@@ -369,32 +369,64 @@
             // the static constructor will run when the first instance is created
 
             // Create an address
+            //DeliveryAddress address = new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            //// CREATE FIRST SHIPMENT
+            //Console.WriteLine("--- Creating Shipment 1 ---");
+            //StandardShipment shipment1 = new StandardShipment("SH001", "Laptop", 3, 80, address);
+            //Console.WriteLine();
+
+            //// CREATE SECOND SHIPMENT
+            //Console.WriteLine("--- Creating Shipment 2 ---");
+            //ExpressShipment shipment2 = new ExpressShipment("SH002", "Phone", 2, 60, address, 30);
+            //Console.WriteLine();
+
+            //// CREATE THIRD SHIPMENT
+            //Console.WriteLine("--- Creating Shipment 3 ---");
+            //InternationalShipment shipment3 = new InternationalShipment("SH003", "TV", 8, 120, address, "Germany", 100);
+            //Console.WriteLine();
+
+            //Console.WriteLine($"Total Shipments Created: {Shipment.TotalShipmentsCreated}");
+            //Console.WriteLine($"Initialization Time: {Shipment.InitializationTime:yyyy-MM-dd HH:mm:ss}");
+            //Console.WriteLine();
+
+            //int total = Shipment.GetTotalShipmentsCreated();
+            //Console.WriteLine($"Total Shipments Created : {total}");
+
+            ////Also works through the property
+            //Console.WriteLine($"Via property: {Shipment.TotalShipmentsCreated}");
+
+            #endregion
+
+            #region Part 2) Q7)
+
+            DeliveryUtilities.PrintSystemTitle("Delivery Center");
+            Console.WriteLine();
+
+            // Create an address
             DeliveryAddress address = new DeliveryAddress("Cairo", "Tahrir Street", 15);
 
-            // CREATE FIRST SHIPMENT
+            // CREATE SHIPMENT 1
             Console.WriteLine("--- Creating Shipment 1 ---");
             StandardShipment shipment1 = new StandardShipment("SH001", "Laptop", 3, 80, address);
             Console.WriteLine();
 
-            // CREATE SECOND SHIPMENT
+            // CREATE SHIPMENT 2
             Console.WriteLine("--- Creating Shipment 2 ---");
             ExpressShipment shipment2 = new ExpressShipment("SH002", "Phone", 2, 60, address, 30);
             Console.WriteLine();
 
-            // CREATE THIRD SHIPMENT
+            // CREATE SHIPMENT 3
             Console.WriteLine("--- Creating Shipment 3 ---");
             InternationalShipment shipment3 = new InternationalShipment("SH003", "TV", 8, 120, address, "Germany", 100);
             Console.WriteLine();
 
-            Console.WriteLine($"Total Shipments Created: {Shipment.TotalShipmentsCreated}");
+            DeliveryUtilities.PrintSeparator();
+            Console.WriteLine($"Total Shipments Created: {Shipment.GetTotalShipmentsCreated()}");
             Console.WriteLine($"Initialization Time: {Shipment.InitializationTime:yyyy-MM-dd HH:mm:ss}");
+            DeliveryUtilities.PrintSeparator();
             Console.WriteLine();
 
-            int total = Shipment.GetTotalShipmentsCreated();
-            Console.WriteLine($"Total Shipments Created : {total}");
-
-            //Also works through the property
-            Console.WriteLine($"Via property: {Shipment.TotalShipmentsCreated}");
             #endregion
         }
     }
