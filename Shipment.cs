@@ -1,6 +1,7 @@
 ﻿using Assignment_9_C__OOP;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
@@ -19,6 +20,12 @@ namespace Assignment_9_C__OOP
         private DeliveryAddress destination;
         private string trackingStatus;
 
+        //Add a static field to Shipment: TotalShipmentsCreated.
+        private static int totalShipmentsCreated = 0;
+
+        // It should keep track of the total number of Shipment objects created.
+        public static int TotalShipmentsCreated => totalShipmentsCreated;
+
         //Constructors
 
         //The first constructor.
@@ -33,6 +40,9 @@ namespace Assignment_9_C__OOP
             deliveryFee = 50;
             destination = new DeliveryAddress("Not specifies yet", "Not specifies yet", 0);
             trackingStatus = "Ready";
+
+            // Every time a shipment is created, increment the counter. 
+            totalShipmentsCreated++;
         }
 
         //The second constructor receives trackingCode, description, weight, deliveryFee, and destination.
@@ -53,6 +63,9 @@ namespace Assignment_9_C__OOP
             destination = Destination;
 
             trackingStatus = "Ready";
+
+            // Every time a shipment is created, increment the counter. 
+            totalShipmentsCreated++;
         }
 
         //TrackingCode cannot be null, empty, or whitespace.
