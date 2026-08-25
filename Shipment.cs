@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Xml;
 
@@ -157,6 +158,11 @@ namespace Assignment_9_C__OOP
         //Create a method: Shipment CopyShipment().
         public abstract Shipment CopyShipment();
 
+        //Create Shipment ShallowCopy(). Use MemberwiseClone() to create the copy.
+        public Shipment ShallowCopy()
+        {
+            return (Shipment)MemberwiseClone();
+        }
 
         //PrintShipment(): prints all shipment information, including the estimated cost.
         //Abstract Method: Print Shipment. Each shipment type prints its own information.
