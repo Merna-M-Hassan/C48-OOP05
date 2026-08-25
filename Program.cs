@@ -362,7 +362,7 @@
 
             #endregion
 
-            #region Part 2) Q5)
+            #region Part 2) Q5) & Q6)
 
             // The static constructor runs BEFORE any of this code executes
             // Even though we haven't accessed any static members yet,
@@ -389,6 +389,12 @@
             Console.WriteLine($"Total Shipments Created: {Shipment.TotalShipmentsCreated}");
             Console.WriteLine($"Initialization Time: {Shipment.InitializationTime:yyyy-MM-dd HH:mm:ss}");
             Console.WriteLine();
+
+            int total = Shipment.GetTotalShipmentsCreated();
+            Console.WriteLine($"Total Shipments Created : {total}");
+
+            //Also works through the property
+            Console.WriteLine($"Via property: {Shipment.TotalShipmentsCreated}");
             #endregion
         }
     }

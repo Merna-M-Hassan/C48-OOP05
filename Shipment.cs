@@ -205,6 +205,13 @@ namespace Assignment_9_C__OOP
         // Derived classes must override this method.
         public abstract Shipment DeepCopy();
 
+        // Returns the total number of shipment objects created. Can be called without creating a Shipment object.
+        public static int GetTotalShipmentsCreated()
+        {
+            return totalShipmentsCreated;
+        }
+
+
         //PrintShipment(): prints all shipment information, including the estimated cost.
         //Abstract Method: Print Shipment. Each shipment type prints its own information.
         public abstract void PrintShipment();
