@@ -191,6 +191,9 @@ namespace Assignment_9_C__OOP
         {
             return totalShipmentsCreated;
         }
+        // Partial method that is called when the tracking status changes.
+        //Declaration only - implementation is in another part of the class.
+        partial void OnTrackingStatusChanged(string newStatus);
 
 
         //PrintShipment(): prints all shipment information, including the estimated cost.

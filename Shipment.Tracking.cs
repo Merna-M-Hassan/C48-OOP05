@@ -26,5 +26,12 @@ namespace Assignment_9_C__OOP
         {
             TrackingStatus = status;
         }
+
+        //Implementation of the partial method OnTrackingStatusChanged.
+        //Displays a message when the tracking status changes.
+        partial void OnTrackingStatusChanged(string newStatus)
+        {
+            Console.WriteLine($"Tracking status changed to: {newStatus}");
+        }
     }
 }
