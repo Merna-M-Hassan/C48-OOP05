@@ -32,7 +32,7 @@ namespace Assignment_9_C__OOP
             return EstimatedCost * 0.05m;
         }
 
- 
+        //Copy method : creates a new independent copy
         //Creates a new independent copy of the shipment
         // All data is copied to a new object
         public override Shipment CopyShipment()
@@ -43,6 +43,19 @@ namespace Assignment_9_C__OOP
                 Weight,
                 DeliveryFee,
                 Destination
+            );
+        }
+     
+
+        //Change the address of the copied shipment.
+        public override Shipment DeepCopy()
+        {
+            return new StandardShipment(
+                TrackingCode,
+                Description,
+                Weight,
+                DeliveryFee,
+                new DeliveryAddress(Destination.City, Destination.Street, Destination.BuildingNumber)
             );
         }
 

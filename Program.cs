@@ -292,45 +292,74 @@
 
             #region Part 2) Q2)
             // Create an address
-            DeliveryAddress address = new DeliveryAddress("Cairo", "Tahrir Street", 15);
+            //DeliveryAddress address = new DeliveryAddress("Cairo", "Tahrir Street", 15);
 
-            // Create Original Shipment
+            //// Create Original Shipment
 
-            StandardShipment shipment01 = new StandardShipment("SH001", "Laptop", 3, 80, address);
+            //StandardShipment shipment01 = new StandardShipment("SH001", "Laptop", 3, 80, address);
 
-            shipment01.PrintShipment();
-            Console.WriteLine();
+            //shipment01.PrintShipment();
+            //Console.WriteLine();
 
-            // Create Shallow Copy using MemberwiseClone()
-            Shipment shipment02 = shipment01.ShallowCopy();
+            //// Create Shallow Copy using MemberwiseClone()
+            //Shipment shipment02 = shipment01.ShallowCopy();
 
-            Console.WriteLine($"Shipment01 object and Shipment02 object are different? {!object.ReferenceEquals(shipment01, shipment02)}");
-            Console.WriteLine($"Same Address object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
-            Console.WriteLine();
+            //Console.WriteLine($"Shipment01 object and Shipment02 object are different? {!object.ReferenceEquals(shipment01, shipment02)}");
+            //Console.WriteLine($"Same Address object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            //Console.WriteLine();
 
-            // Demonstrate: Changing address through copy affects original
+            //// Demonstrate: Changing address through copy affects original
 
-            Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}");
-            Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}");
+            //Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}");
+            //Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}");
 
-            // Modify the address in shipment02
-            // DeliveryAddress is a struct, so we need to create a new one
-            DeliveryAddress newAddress = new DeliveryAddress("Alexandria", "Corniche", 20);
-            shipment02.Destination = newAddress;
+            //// Modify the address in shipment02
+            //// DeliveryAddress is a struct, so we need to create a new one
+            //DeliveryAddress newAddress = new DeliveryAddress("Alexandria", "Corniche", 20);
+            //shipment02.Destination = newAddress;
 
-            Console.WriteLine("After modifying shipment02's address:");
-            Console.WriteLine($"shipment01 Address: {shipment01.Destination.GetFullAddress()}"); //Changed!
-            Console.WriteLine($"shipment02 Address: {shipment02.Destination.GetFullAddress()}");
-            Console.WriteLine();
-            Console.WriteLine($"Same Address object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
-            Console.WriteLine();
-            Console.WriteLine("The shipment01 shipment's address is also affected!");
-            Console.WriteLine("They share the same DeliveryAddress object.");
-            Console.WriteLine();
+            //Console.WriteLine("After modifying shipment02's address:");
+            //Console.WriteLine($"shipment01 Address: {shipment01.Destination.GetFullAddress()}"); //Changed!
+            //Console.WriteLine($"shipment02 Address: {shipment02.Destination.GetFullAddress()}");
+            //Console.WriteLine();
+            //Console.WriteLine($"Same Address object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            //Console.WriteLine();
+            //Console.WriteLine("The shipment01 shipment's address is also affected!");
+            //Console.WriteLine("They share the same DeliveryAddress object.");
+            //Console.WriteLine();
 
             //DeliveryAddress is a struct (value type), so it was copied independently.
             // Since DeliveryAddress is a struct, assigning a new address creates a copy.
             // The original is not affected because DeliveryAddress is a struct
+            #endregion
+
+            #region Part2) Q3)
+            // Create an address
+            DeliveryAddress address = new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            // Create Original Shipment
+            StandardShipment shipment01 = new StandardShipment("SH001", "Laptop", 3, 80, address);
+            shipment01.PrintShipment();
+            Console.WriteLine();
+
+            // Create Deep Copy
+            Shipment shipment02 = shipment01.DeepCopy();
+
+            Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}");
+            Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}");
+            Console.WriteLine($"Same DeliveryAddress object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            Console.WriteLine();
+
+
+            // Create a new address for the copy
+            DeliveryAddress newAddress = new DeliveryAddress("Giza", "Pyramids Street", 10);
+            shipment02.Destination = newAddress;
+
+            Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}"); // Cairo (UNCHANGED!)
+            Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}"); // Giza (CHANGED!)
+            Console.WriteLine($"Same DeliveryAddress object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            Console.WriteLine();
+
             #endregion
         }
     }

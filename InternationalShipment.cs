@@ -60,6 +60,20 @@ namespace Assignment_9_C__OOP
             );
         }
 
+        //Change the address of the copied shipment.
+        public override Shipment DeepCopy()
+        {
+            return new InternationalShipment(
+                TrackingCode,
+                Description,
+                Weight,
+                DeliveryFee,
+                new DeliveryAddress(Destination.City, Destination.Street, Destination.BuildingNumber),
+                DestinationCountry,
+                CustomsFee
+            );
+        }
+
         // Overrides PrintShipment().
         public override void PrintShipment()
         {

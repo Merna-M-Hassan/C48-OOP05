@@ -50,6 +50,19 @@ namespace Assignment_9_C__OOP
             );
         }
 
+        //Change the address of the copied shipment.
+        public override Shipment DeepCopy()
+        {
+            return new ExpressShipment(
+                TrackingCode,
+                Description,
+                Weight,
+                DeliveryFee,
+                new DeliveryAddress(Destination.City, Destination.Street, Destination.BuildingNumber),
+                ExtraFee
+            );
+        }
+
 
         // Overrides PrintShipment().
         public override void PrintShipment()

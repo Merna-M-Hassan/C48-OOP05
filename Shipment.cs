@@ -164,6 +164,10 @@ namespace Assignment_9_C__OOP
             return (Shipment)MemberwiseClone();
         }
 
+        // Creates a deeo copy with a new DeliveryAddress.
+        // Derived classes must override this method.
+        public abstract Shipment DeepCopy();
+
         //PrintShipment(): prints all shipment information, including the estimated cost.
         //Abstract Method: Print Shipment. Each shipment type prints its own information.
         public abstract void PrintShipment();
