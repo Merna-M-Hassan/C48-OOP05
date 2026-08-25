@@ -427,7 +427,24 @@
             DeliveryUtilities.PrintSeparator();
             Console.WriteLine();
 
+            //GetSummary() extension method
+            Console.WriteLine("--- GetSummary() ---");
+            Console.WriteLine(shipment1.GetSummary());
+            Console.WriteLine(shipment2.GetSummary());
+            Console.WriteLine(shipment3.GetSummary());
+            Console.WriteLine();
+
+            //IsDelivered() extension method
+            Console.WriteLine("--- IsDelivered() ---");
+            Console.WriteLine($"SH001 delivered? {shipment1.IsDelivered()}");
+            Console.WriteLine($"SH002 delivered? {shipment2.IsDelivered()}");
+            Console.WriteLine($"SH003 delivered? {shipment3.IsDelivered()}");
+            Console.WriteLine();
+
+
             #endregion
+
+
         }
     }
 }
