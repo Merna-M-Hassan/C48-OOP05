@@ -441,7 +441,17 @@
             Console.WriteLine($"SH003 delivered? {shipment3.IsDelivered()}");
             Console.WriteLine();
 
+            // Print full details
+            Console.WriteLine("--- Full Shipment Details ---");
+            shipment1.PrintShipment();
+            Console.WriteLine();
+            shipment2.PrintShipment();
+            Console.WriteLine();
+            shipment3.PrintShipment();
 
+           DeliveryUtilities.PrintSeparator() ;
+            Console.WriteLine($"Total Shipments Created: {Shipment.GetTotalShipmentsCreated()}");
+            DeliveryUtilities.PrintSeparator();
             #endregion
 
 
