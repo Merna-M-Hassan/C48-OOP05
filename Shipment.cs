@@ -154,6 +154,8 @@ namespace Assignment_9_C__OOP
             }
         }
 
+        //Create a method: Shipment CopyShipment().
+        public abstract Shipment CopyShipment();
 
 
         //PrintShipment(): prints all shipment information, including the estimated cost.

@@ -32,6 +32,20 @@ namespace Assignment_9_C__OOP
             return EstimatedCost * 0.05m;
         }
 
+ 
+        //Creates a new independent copy of the shipment
+        // All data is copied to a new object
+        public override Shipment CopyShipment()
+        {
+            return new StandardShipment(
+                TrackingCode,
+                Description,
+                Weight,
+                DeliveryFee,
+                Destination
+            );
+        }
+
         // Overrides PrintShipment().
         // Prints standard shipment information.
         public override void PrintShipment()

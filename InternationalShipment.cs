@@ -46,6 +46,20 @@ namespace Assignment_9_C__OOP
             return EstimatedCost * 0.12m;
         }
 
+        //creates a new independent copy
+        public override Shipment CopyShipment()
+        {
+            return new InternationalShipment(
+                TrackingCode,
+                Description,
+                Weight,
+                DeliveryFee,
+                Destination,
+                DestinationCountry,
+                CustomsFee
+            );
+        }
+
         // Overrides PrintShipment().
         public override void PrintShipment()
         {

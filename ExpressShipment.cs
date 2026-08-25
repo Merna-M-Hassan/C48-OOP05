@@ -37,6 +37,20 @@ namespace Assignment_9_C__OOP
             return EstimatedCost * 0.08m;
         }
 
+        // Creates a new independent copy of the ExpressShipment
+        public override Shipment CopyShipment()
+        {
+            return new ExpressShipment(
+                TrackingCode,
+                Description,
+                Weight,
+                DeliveryFee,
+                Destination,
+                ExtraFee
+            );
+        }
+
+
         // Overrides PrintShipment().
         public override void PrintShipment()
         {

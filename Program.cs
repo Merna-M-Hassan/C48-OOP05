@@ -226,6 +226,69 @@
              * If a partial method has no implementation, it's as if it never existed. The compiler removes the declaration and all calls to it. 
              */
             #endregion
+
+            #region Part 2) Q1)
+            //Demonstrate the difference between assigning one object variable to another and creating an actual copy.
+
+            // Create an address
+            DeliveryAddress address01 = new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            //1. Create Original Shipment
+            StandardShipment shipment01 = new StandardShipment("SH001", "Laptop", 3, 80, address01);
+
+            Console.WriteLine("--- Original Shipment ---");
+            shipment01.PrintShipment();
+            Console.WriteLine();
+
+
+            //2. Assign 
+            Shipment shipment02 = shipment01;
+
+            Console.WriteLine($"Shipment01 Description: {shipment01.Description}");
+            Console.WriteLine($"Shipment02 Description: {shipment02.Description}");
+            Console.WriteLine($"Same object? {object.ReferenceEquals(shipment01, shipment02)}");
+
+            // Modify shipment2
+            shipment02.Description = "Gaming Laptop";
+            shipment02.Weight = 5;
+
+            Console.WriteLine($"Shipment01 Description: {shipment01.Description}");  // Changed
+            Console.WriteLine($"Shipment02 Description: {shipment02.Description}"); // Changed!
+            Console.WriteLine($"Shipment01 Weight: {shipment01.Weight}");            // Changed!
+            Console.WriteLine($"shipment02 Weight: {shipment02.Weight}");          // Changed!
+            Console.WriteLine($"Same object? {object.ReferenceEquals(shipment01, shipment02)}");
+            Console.WriteLine();
+            Console.WriteLine("Both changed! Because they are point to the same object.");
+            Console.WriteLine();
+
+
+            // 3. Copy(): creates a new independent object
+
+            // Reset shipment01 data
+            shipment01.Description = "Laptop";
+            shipment01.Weight = 3;
+
+            // Creates a new independent copy
+            Shipment shipment03 = shipment01.CopyShipment();
+
+            Console.WriteLine($"Shipment01 Description: {shipment01.Description}");
+            Console.WriteLine($"Shipment03 Description: {shipment03.Description}");
+            Console.WriteLine($"Same object? {object.ReferenceEquals(shipment01, shipment03)}");
+
+            // Modify the shipment03
+            shipment03.Description = "Business Laptop";
+            shipment03.Weight = 7;
+
+            Console.WriteLine($"Shipment01 Description: {shipment01.Description}");  // Still the same!
+            Console.WriteLine($"Shipment03.Description: {shipment03.Description}");          //Changed!
+            Console.WriteLine($"Shipment01 Weight: {shipment01.Weight}");            // Still the same!
+            Console.WriteLine($"Shipment03 Weight: {shipment03.Weight}");                    // Changed!
+            Console.WriteLine($"Same object? {object.ReferenceEquals(shipment01, shipment03)}");
+            Console.WriteLine();
+            Console.WriteLine("Shipment01 is unchanged! Because they are independent copies.");
+            Console.WriteLine();
+
+            #endregion
         }
     }
 }
