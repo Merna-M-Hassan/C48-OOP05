@@ -1,5 +1,4 @@
-﻿using Assignment_9_C__OOP;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Drawing;
@@ -20,13 +19,38 @@ namespace Assignment_9_C__OOP
         private DeliveryAddress destination;
         private string trackingStatus;
 
+
+        //Static Fields
         //Add a static field to Shipment: TotalShipmentsCreated.
         private static int totalShipmentsCreated = 0;
 
+        //Initialize the shipment counter
+        private static DateTime initializationTime;
+
+
+        //Static Properties
         // It should keep track of the total number of Shipment objects created.
         public static int TotalShipmentsCreated => totalShipmentsCreated;
 
+        public static DateTime InitializationTime => initializationTime;
+
         //Constructors
+
+        // Static constructor initializes static members.
+        //It runs automatically once before any static member is accessed or any instance is created.
+        static Shipment()
+        {
+            totalShipmentsCreated = 0;
+            initializationTime = DateTime.Now;
+
+            Console.WriteLine("-----Shipment Initialized-----");
+            Console.WriteLine($"Initialization Time: {initializationTime:yyyy-MM-dd HH:mm:ss}");
+            Console.WriteLine($"Total Shipments Created: {totalShipmentsCreated}");
+            Console.WriteLine("---------------------------------------------------------------------------");
+            Console.WriteLine();
+        }
+
+
 
         //The first constructor.
         public Shipment(string TrackCode)

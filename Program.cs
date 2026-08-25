@@ -334,32 +334,61 @@
             #endregion
 
             #region Part2) Q3)
+            //// Create an address
+            //DeliveryAddress address = new DeliveryAddress("Cairo", "Tahrir Street", 15);
+
+            //// Create Original Shipment
+            //StandardShipment shipment01 = new StandardShipment("SH001", "Laptop", 3, 80, address);
+            //shipment01.PrintShipment();
+            //Console.WriteLine();
+
+            //// Create Deep Copy
+            //Shipment shipment02 = shipment01.DeepCopy();
+
+            //Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}");
+            //Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}");
+            //Console.WriteLine($"Same DeliveryAddress object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            //Console.WriteLine();
+
+
+            //// Create a new address for the copy
+            //DeliveryAddress newAddress = new DeliveryAddress("Giza", "Pyramids Street", 10);
+            //shipment02.Destination = newAddress;
+
+            //Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}"); // Cairo (UNCHANGED!)
+            //Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}"); // Giza (CHANGED!)
+            //Console.WriteLine($"Same DeliveryAddress object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            //Console.WriteLine();
+
+            #endregion
+
+            #region Part 2) Q5)
+
+            // The static constructor runs BEFORE any of this code executes
+            // Even though we haven't accessed any static members yet,
+            // the static constructor will run when the first instance is created
+
             // Create an address
             DeliveryAddress address = new DeliveryAddress("Cairo", "Tahrir Street", 15);
 
-            // Create Original Shipment
-            StandardShipment shipment01 = new StandardShipment("SH001", "Laptop", 3, 80, address);
-            shipment01.PrintShipment();
+            // CREATE FIRST SHIPMENT
+            Console.WriteLine("--- Creating Shipment 1 ---");
+            StandardShipment shipment1 = new StandardShipment("SH001", "Laptop", 3, 80, address);
             Console.WriteLine();
 
-            // Create Deep Copy
-            Shipment shipment02 = shipment01.DeepCopy();
-
-            Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}");
-            Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}");
-            Console.WriteLine($"Same DeliveryAddress object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            // CREATE SECOND SHIPMENT
+            Console.WriteLine("--- Creating Shipment 2 ---");
+            ExpressShipment shipment2 = new ExpressShipment("SH002", "Phone", 2, 60, address, 30);
             Console.WriteLine();
 
-
-            // Create a new address for the copy
-            DeliveryAddress newAddress = new DeliveryAddress("Giza", "Pyramids Street", 10);
-            shipment02.Destination = newAddress;
-
-            Console.WriteLine($"Shipment01 Address: {shipment01.Destination.GetFullAddress()}"); // Cairo (UNCHANGED!)
-            Console.WriteLine($"Shipment02 Address: {shipment02.Destination.GetFullAddress()}"); // Giza (CHANGED!)
-            Console.WriteLine($"Same DeliveryAddress object? {object.ReferenceEquals(shipment01.Destination, shipment02.Destination)}");
+            // CREATE THIRD SHIPMENT
+            Console.WriteLine("--- Creating Shipment 3 ---");
+            InternationalShipment shipment3 = new InternationalShipment("SH003", "TV", 8, 120, address, "Germany", 100);
             Console.WriteLine();
 
+            Console.WriteLine($"Total Shipments Created: {Shipment.TotalShipmentsCreated}");
+            Console.WriteLine($"Initialization Time: {Shipment.InitializationTime:yyyy-MM-dd HH:mm:ss}");
+            Console.WriteLine();
             #endregion
         }
     }
